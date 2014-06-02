@@ -1,4 +1,4 @@
-#Steps to create plot 2
+#Steps to create plot 3
 
 # 1. Load data as as per Plot 1
 # Names of the columns in the final dataset
@@ -18,23 +18,6 @@ datetimeformat <- "%d/%m/%Y %H:%M:%S"
 # Obtain final datetime object product via strptime()
 dateTime <- strptime(date_time, datetimeformat)
 
-## test plots
-plot( dateTime , power_data_subset[,7:9], type="l",
-      xlab = "", ylab = "")
-
-#almost there
-    # Plot 1
-plot( dateTime , power_data_subset[,7], type="l",
-      xlab = "", ylab = "")
-par(new=T)
-    # Plot 2
-plot( dateTime , power_data_subset[,8], type="l",
-      xlab = "", ylab = "", ylim=c(0.0, 2.0))
-par(new=T)
-    # Plot 3
-plot( dateTime , power_data_subset[,9], type="l",
-      xlab = "", ylab = "", ylim=c( 0.0, max(power_data_subset[,9])) )
-par(new=F)
 
 # got some help from: 
 # using ggplot2: 
@@ -44,6 +27,8 @@ par(new=F)
     # http://www.sixhat.net/plotting-multiple-data-series-in-r.html
     # This is way easier with ggplot2
 
+
+png(filename = "plot3.png")
 # make plot
     # import ggplot2 library
 library(ggplot2)
@@ -54,7 +39,8 @@ plot( dateTime , power_data_subset[,7], type="l",
 points(dateTime, power_data_subset[,8],col="red", type="l")
     # add third y-axis data series
 points(dateTime, power_data_subset[,9],col="blue", type="l")
+    # add the legend to the plot
+legend("topright", col = c("black","blue", "red"), 
+       legend = names(power_data_subset[7:9]), lty=c(1,1,1))
 
-# annotate plot
-legend("topright", pch = 1, col = c("black","blue", "red"), 
-       legend = names(power_data_subset[7:9]), lty=c(1,1))
+dev.off()
