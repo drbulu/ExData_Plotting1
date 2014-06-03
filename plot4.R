@@ -1,3 +1,8 @@
+# Important Note:
+# Please make sure that you set the working directory to the one containing 
+# the "household_power_consumption.txt" before you try to run this script.
+# Otherwise this script will not run at all and give you an error. :)
+
 #Steps to create plot 4
 
 # 1. Load data as as per Plot 3

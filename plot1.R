@@ -1,13 +1,7 @@
-#instructions for making plot 1
-
-# Change the value of workingDir to that of the directory that contains 
-# the "household_power_consumption.txt" source data.
-
-workingDir <- "<insert name of directory containing dataset here>"
-
-# Sets working directory to the location specified in the workingDir variable
-
-setwd(workingDir)
+# Important Note:
+# Please make sure that you set the working directory to the one containing 
+# the "household_power_consumption.txt" before you try to run this script.
+# Otherwise this script will not run at all and give you an error. :)
 
 # Read in only the rows corresponding to the relevant dates 2007-02-01 and 2007-02-02. 
 
